@@ -6,14 +6,12 @@ const NavBar = () => {
   return (
     <Navbar bg="black" expand="lg">
       <Navbar.Brand href="#home">
-        <a className="navbar-brand" href="https:google.com">
-          <img
-            alt="Netflix Logo"
-            src="./assets/netflix_logo.png"
-            className="d-inline-block align-top"
-            id="logo"
-          />
-        </a>
+        <img
+          alt="Netflix Logo"
+          src="./assets/netflix_logo.png"
+          className="d-inline-block align-top"
+          id="logo"
+        />
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
@@ -35,21 +33,20 @@ const NavBar = () => {
           </Nav.Link>
           {/* RIGHT SIDE starting */}
         </Nav>
-        <Nav inline>
+        <Nav inline="true">
           <Nav.Link href="#link">
             <Search color="white" />
           </Nav.Link>
-          <Nav.Link href="#link" style={{ color: "grey" }}>
+          <Nav.Link className="ml-3" href="#link" style={{ color: "grey" }}>
             KIDS
           </Nav.Link>
-          <Nav.Link href="#link">
+          <Nav.Link className="ml-3" href="#link">
             <BellFill color="grey" />
           </Nav.Link>
-          <Dropdown>
+          <Dropdown className="ml-3">
             <Dropdown.Toggle
               variant="secondary"
               as={ButtonGroup}
-              menuAlign={{ lg: "left" }}
               id="dropdown-menu-align-responsive-1"
               style={{ background: "transparent", border: "none" }}
             >
