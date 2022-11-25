@@ -8,6 +8,8 @@ import WatchAgain from "./components/WatchAgain";
 import NewReleases from "./components/NewReleases";
 import Footer from "./components/Footer";
 import HarryPotter from "./components/HarryPotter";
+import StarWars from "./components/StarWars";
+import Matrix from "./components/Matrix";
 
 function App() {
   return (
@@ -15,7 +17,9 @@ function App() {
       <div className="container-fluid" id="container">
         <NavBar />
         <TvShowsGenres />
+        <Matrix />
         <HarryPotter />
+        <StarWars />
         <TrendingNow />
         <WatchAgain />
         <NewReleases />

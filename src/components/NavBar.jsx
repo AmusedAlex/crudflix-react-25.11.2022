@@ -1,6 +1,8 @@
 import "../components/styles.css";
 import { Navbar, Nav, Dropdown, ButtonGroup } from "react-bootstrap";
-import { Search, BellFill } from "react-bootstrap-icons";
+import { BellFill } from "react-bootstrap-icons";
+// import SearchInput from "./SearchInput";
+import { Search } from "react-bootstrap-icons";
 
 const NavBar = () => {
   return (

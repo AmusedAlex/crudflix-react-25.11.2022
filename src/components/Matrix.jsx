@@ -2,7 +2,7 @@ import { Component } from "react";
 import "./styles.css";
 import { Spinner } from "react-bootstrap";
 
-class HarryPotter extends Component {
+class Matrix extends Component {
   state = {
     Search: [
       {
@@ -19,7 +19,7 @@ class HarryPotter extends Component {
   fetchFilms = async () => {
     try {
       let response = await fetch(
-        `http://www.omdbapi.com/?apikey=c559a0ab&s=harry%20potter`,
+        `http://www.omdbapi.com/?apikey=c559a0ab&s=matrix`,
         { method: "GET" }
       );
       if (response.ok) {
@@ -46,7 +46,7 @@ class HarryPotter extends Component {
   render() {
     return (
       <div className="movie-gallery m-2">
-        <h5 className="text-light mt-2 mb-2">Harry Potter</h5>
+        <h5 className="text-light mt-2 mb-2">Matrix</h5>
         <div
           id="new-releases"
           className="carousel slide"
@@ -119,4 +119,4 @@ class HarryPotter extends Component {
   }
 }
 
-export default HarryPotter;
+export default Matrix;
