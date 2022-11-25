@@ -23,10 +23,10 @@ class HarryPotter extends Component {
       if (response.ok) {
         alert("Data sucessfully fetched");
         let data = await response.json();
-        console.log(data);
         this.setState({
-          data,
+          Search: data.Search,
         });
+        console.log(this.state);
       } else {
         alert("Fetching failed");
         console.log("Fetching failed");
@@ -35,7 +35,7 @@ class HarryPotter extends Component {
   };
 
   componentDidMount() {
-    this.fetchFilms(this.state.Search.imdbID);
+    this.fetchFilms();
   }
 
   render() {
