@@ -1,8 +1,8 @@
-const TvShowsGenres = () => {
+const TvShowsGenres = (props) => {
   return (
     <div className="genre-details">
       <div className="d-flex">
-        <h3 className="text-light">TV Shows</h3>
+        <h3 className="text-light">{props.title}</h3>
         <button className="btn btn-outline-light dropdown-toggle genre-button">
           Genres
         </button>

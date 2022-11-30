@@ -73,7 +73,7 @@ const Footer = () => {
             </li>
             <li className="nav-item mt-2">
               <a className="nav-link text-muted" href="#/link">
-                © 1997-2021 Netflix Inc
+                © 1997-2022 Netflix Inc
               </a>
             </li>
           </ul>

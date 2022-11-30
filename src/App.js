@@ -2,28 +2,25 @@ import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import NavBar from "./components/NavBar";
 import "./components/styles.css";
-import TvShowsGenres from "./components/TvShowsGenres";
-import TrendingNow from "./components/TrendingNow";
-import WatchAgain from "./components/WatchAgain";
-import NewReleases from "./components/NewReleases";
 import Footer from "./components/Footer";
-import HarryPotter from "./components/HarryPotter";
-import StarWars from "./components/StarWars";
-import Matrix from "./components/Matrix";
+import Movies from "./components/Movies";
+import Home from "./components/Home";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import TvShows from "./components/TvShows";
+import FilmDetails from "./components/FilmDetails";
 
 function App() {
   return (
     <>
-      <div className="container-fluid" id="container">
+      <BrowserRouter>
         <NavBar />
-        <TvShowsGenres />
-        <Matrix />
-        <HarryPotter />
-        <StarWars />
-        <TrendingNow />
-        <WatchAgain />
-        <NewReleases />
-      </div>
+        <Routes>
+          <Route element={<Home />} path="/" />
+          <Route element={<TvShows />} path="/tvshows" />
+          <Route element={<Movies />} path="/movies" />
+          <Route element={<FilmDetails />} path="/details/:filmId" />
+        </Routes>
+      </BrowserRouter>
       <div className="container">
         <Footer />
       </div>

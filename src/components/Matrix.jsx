@@ -3,19 +3,6 @@ import { Spinner } from "react-bootstrap";
 import { useEffect, useState } from "react";
 
 const Matrix = () => {
-  // state = {
-  //   Search: [
-  //     {
-  //       Title: "",
-  //       Year: "",
-  //       imdbID: "",
-  //       Type: "",
-  //       Poster: "",
-  //     },
-  //   ],
-  //   isLoading: true,
-  // };
-
   const [search, setSearch] = useState({
     Search: [
       {
@@ -42,10 +29,6 @@ const Matrix = () => {
           setSearch(data);
           setIsLoading(false);
           console.log(search);
-          // this.setState({
-          //   Search: data.Search,
-          //   isLoading: false,
-          // });
         }, 3000);
       } else {
         alert("Fetching failed");
@@ -58,11 +41,8 @@ const Matrix = () => {
 
   useEffect(() => {
     fetchFilms();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
-  // componentDidMount() {
-  //   this.fetchFilms();
-  // }
 
   return (
     <div className="movie-gallery m-2">

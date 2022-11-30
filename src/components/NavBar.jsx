@@ -3,30 +3,57 @@ import { Navbar, Nav, Dropdown, ButtonGroup } from "react-bootstrap";
 import { BellFill } from "react-bootstrap-icons";
 // import SearchInput from "./SearchInput";
 import { Search } from "react-bootstrap-icons";
+import { Link, useLocation } from "react-router-dom";
 
 const NavBar = () => {
+  const location = useLocation();
   return (
     <Navbar bg="black" expand="lg">
-      <Navbar.Brand href="#home">
-        <img
-          alt="Netflix Logo"
-          src="./assets/netflix_logo.png"
-          className="d-inline-block align-top"
-          id="logo"
-        />
-      </Navbar.Brand>
+      <Link to="/">
+        <Navbar.Brand href="#home">
+          <img
+            alt="Netflix Logo"
+            src="./assets/netflix_logo.png"
+            className="d-inline-block align-top"
+            id="logo"
+          />
+        </Navbar.Brand>
+      </Link>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto">
-          <Nav.Link href="#home" style={{ color: "grey" }}>
-            Home
-          </Nav.Link>
-          <Nav.Link href="#link" style={{ color: "grey" }}>
-            Tv Shows
-          </Nav.Link>
-          <Nav.Link href="#link" style={{ color: "grey" }}>
-            Movies
-          </Nav.Link>
+          <Link to="/">
+            <div
+              className={
+                location.pathname === "/" ? "nav-link active" : "nav-link"
+              }
+              style={{ color: "grey" }}
+            >
+              Home
+            </div>
+          </Link>
+          <Link to="/tvshows">
+            <div
+              className={
+                location.pathname === "/tvshows"
+                  ? "nav-link active"
+                  : "nav-link"
+              }
+              style={{ color: "grey" }}
+            >
+              Tv Shows
+            </div>
+          </Link>
+          <Link to="/movies">
+            <div
+              className={
+                location.pathname === "/movies" ? "nav-link active" : "nav-link"
+              }
+              style={{ color: "grey" }}
+            >
+              Movies
+            </div>
+          </Link>
           <Nav.Link href="#link" style={{ color: "grey" }}>
             Recently Added
           </Nav.Link>

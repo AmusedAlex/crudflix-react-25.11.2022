@@ -114,3 +114,16 @@ input[type="checkbox"] {
   transform: scale(1.5);
   margin-bottom: 10px;
 }
+
+div.nav-link:hover {
+  text-decoration: none !important;
+  color: white !important;
+}
+a:hover {
+  text-decoration: none !important;
+  color: white !important;
+}
+
+div.nav-link.active {
+  color: white !important;
+}

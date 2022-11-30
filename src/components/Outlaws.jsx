@@ -1,8 +1,9 @@
-import { useEffect, useState } from "react";
 import "./styles.css";
 import { Spinner } from "react-bootstrap";
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
-const StarWars = () => {
+const Outlaws = () => {
   const [search, setSearch] = useState({
     Search: [
       {
@@ -20,7 +21,7 @@ const StarWars = () => {
   const fetchFilms = async () => {
     try {
       let response = await fetch(
-        `http://www.omdbapi.com/?apikey=c559a0ab&s=star%20wars`,
+        `http://www.omdbapi.com/?apikey=c559a0ab&s=outlaws`,
         { method: "GET" }
       );
       if (response.ok) {
@@ -28,6 +29,7 @@ const StarWars = () => {
         setTimeout(() => {
           setSearch(data);
           setIsLoading(false);
+          console.log(search);
         }, 3000);
       } else {
         alert("Fetching failed");
@@ -40,11 +42,12 @@ const StarWars = () => {
 
   useEffect(() => {
     fetchFilms();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
     <div className="movie-gallery m-2">
-      <h5 className="text-light mt-2 mb-2">Star Wars</h5>
+      <h5 className="text-light mt-2 mb-2">The Outlaws</h5>
       <div id="new-releases" className="carousel slide" data-bs-ride="carousel">
         <div className="carousel-inner">
           <div className="carousel-item active">
@@ -57,11 +60,13 @@ const StarWars = () => {
                 )}
                 {search.Search.slice(0, 6).map((film) => (
                   <div className="col-md-2" key={film.imdbID}>
-                    <img
-                      className="movie-cover"
-                      src={film.Poster}
-                      alt={film.Title}
-                    />
+                    <Link to={"/details/" + film.imdbID}>
+                      <img
+                        className="movie-cover"
+                        src={film.Poster}
+                        alt={film.Title}
+                      />
+                    </Link>
                   </div>
                 ))}
               </div>
@@ -112,4 +117,4 @@ const StarWars = () => {
   );
 };
 
-export default StarWars;
+export default Outlaws;
