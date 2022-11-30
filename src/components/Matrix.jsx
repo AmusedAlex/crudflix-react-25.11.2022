@@ -1,6 +1,7 @@
 import "./styles.css";
 import { Spinner } from "react-bootstrap";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const Matrix = () => {
   const [search, setSearch] = useState({
@@ -59,11 +60,13 @@ const Matrix = () => {
                 )}
                 {search.Search.slice(0, 6).map((film) => (
                   <div className="col-md-2" key={film.imdbID}>
-                    <img
-                      className="movie-cover"
-                      src={film.Poster}
-                      alt={film.Title}
-                    />
+                    <Link to={"/details/" + film.imdbID}>
+                      <img
+                        className="movie-cover"
+                        src={film.Poster}
+                        alt={film.Title}
+                      />
+                    </Link>
                   </div>
                 ))}
               </div>

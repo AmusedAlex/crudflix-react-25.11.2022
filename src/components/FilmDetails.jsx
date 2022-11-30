@@ -1,24 +1,65 @@
+import { useState, useEffect } from "react";
 import { Container, Row, Col, Button } from "react-bootstrap";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 const FilmDetails = () => {
-  //   const params = useParams();
+  const params = useParams();
+
+  const [film, setFilm] = useState({
+    Title: "",
+    Year: "",
+    imdbID: "",
+    Type: "",
+    Poster: "",
+  });
+
+  const navigate = useNavigate();
+
+  const fetchFilm = async () => {
+    try {
+      let response = await fetch(
+        `http://www.omdbapi.com/?i=${params.filmId}&apikey=c559a0ab`,
+        { method: "GET" }
+      );
+      if (response.ok) {
+        let data = await response.json();
+        setFilm(data);
+      } else {
+        alert("Fetching failed");
+        console.log("Fetching failed");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    fetchFilm();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   return (
-    <Container>
+    <Container className="my-5">
       <Row className="justify-content-center ">
-        <Col xs={6}>
-          <img src="http://placekitten.com/300/300" alt="placekitten" />
+        <Col xs={6} className="d-flex justify-content-center">
+          <img src={film.Poster} alt={film.Title} />
         </Col>
         <Col
           xs={6}
           style={{ color: "white" }}
-          className="d-flex align-items-center"
+          className="d-flex align-items-center pr-5"
         >
           <div>
-            <h2>Star Wars Episode 1</h2>
-            <div>Type: Movie</div>
-            <div>Year: 2022</div>
-            <Button variant="danger" className="mt-4">
+            <h2>{film.Title}</h2>
+            <h5>{film.Plot}</h5>
+            <div>
+              Released: {film.Released}, Author: {film.Writer}
+            </div>
+            <Button
+              variant="danger"
+              className="mt-4"
+              onClick={() => navigate(-1)}
+            >
               Go Back
             </Button>
           </div>
