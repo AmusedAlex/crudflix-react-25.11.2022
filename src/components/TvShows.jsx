@@ -1,11 +1,12 @@
 import TvShowsGenres from "./TvShowsGenres";
-import Outlaws from "./Outlaws";
+
+import FilmComponent from "./FilmComponent";
 
 const TvShows = () => {
   return (
     <div className="container-fluid" id="container">
       <TvShowsGenres title={"Your favourite Tv Shows"} />
-      <Outlaws />
+      <FilmComponent filmName={"Outlaws"} />
     </div>
   );
 };

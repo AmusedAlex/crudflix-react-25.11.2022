@@ -1,15 +1,13 @@
-import HarryPotter from "./HarryPotter";
-import Matrix from "./Matrix";
-import StarWars from "./StarWars";
 import TvShowsGenres from "./TvShowsGenres";
+import FilmComponent from "./FilmComponent";
 
 const Movies = () => {
   return (
     <div className="container-fluid" id="container">
       <TvShowsGenres title={"Your beloved Movies"} />
-      <Matrix />
-      <HarryPotter />
-      <StarWars />
+      <FilmComponent filmName={"Matrix"} />
+      <FilmComponent filmName={"Harry Potter"} />
+      <FilmComponent filmName={"Star Wars"} />
     </div>
   );
 };
