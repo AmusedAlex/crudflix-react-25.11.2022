@@ -23,6 +23,8 @@ const FilmDetails = () => {
       );
       if (response.ok) {
         let data = await response.json();
+        console.log("🚀 ~ file: FilmDetails.jsx:26 ~ fetchFilm ~ data", data);
+
         setFilm(data);
       } else {
         alert("Fetching failed");

@@ -6,7 +6,7 @@ const TvShows = () => {
   return (
     <div className="container-fluid" id="container">
       <TvShowsGenres title={"Your favourite Tv Shows"} />
-      <FilmComponent filmName={"Outlaws"} />
+      <FilmComponent filmName={"The Simpsons"} />
     </div>
   );
 };

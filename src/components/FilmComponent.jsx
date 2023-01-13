@@ -4,33 +4,29 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 const FilmComponent = (props) => {
-  const [search, setSearch] = useState({
-    Search: [
-      {
-        Title: "",
-        Year: "",
-        imdbID: "",
-        Type: "",
-        Poster: "",
-      },
-    ],
-  });
+  const [search, setSearch] = useState([
+    // {
+    //   Title: "",
+    //   Year: "",
+    //   imdbID: "",
+    //   Type: "",
+    //   Poster: "",
+    // },
+  ]);
 
   const [isLoading, setIsLoading] = useState(true);
 
   const fetchFilms = async () => {
     try {
       let response = await fetch(
-        `http://www.omdbapi.com/?apikey=c559a0ab&s=${props.filmName}`,
+        `http://localhost:1337/medias/?search=${props.filmName}`,
         { method: "GET" }
       );
       if (response.ok) {
         let data = await response.json();
-        setTimeout(() => {
-          setSearch(data);
-          setIsLoading(false);
-          console.log(search);
-        }, 3000);
+        setSearch(data);
+        setIsLoading(false);
+        console.log(data);
       } else {
         alert("Fetching failed");
         console.log("Fetching failed");
@@ -58,7 +54,7 @@ const FilmComponent = (props) => {
                     <span className="sr-only">Loading...</span>
                   </Spinner>
                 )}
-                {search.Search.slice(0, 6).map((film) => (
+                {search.slice(0, 6).map((film) => (
                   <div className="col-md-2" key={film.imdbID}>
                     <Link to={"/details/" + film.imdbID}>
                       <img
@@ -75,7 +71,7 @@ const FilmComponent = (props) => {
           <div className="carousel-item">
             <div className="movie-row">
               <div className="row">
-                {search.Search.slice(6, 13).map((film) => (
+                {search.slice(6, 13).map((film) => (
                   <div className="col-md-2" key={film.imdbID}>
                     <img
                       className="movie-cover"
