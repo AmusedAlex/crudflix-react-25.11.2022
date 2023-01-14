@@ -1,8 +1,7 @@
 import "../components/styles.css";
 import { Navbar, Nav, Dropdown, ButtonGroup } from "react-bootstrap";
 import { BellFill } from "react-bootstrap-icons";
-// import SearchInput from "./SearchInput";
-import { Search } from "react-bootstrap-icons";
+import SearchInput from "./SearchInput";
 import { Link, useLocation } from "react-router-dom";
 
 const NavBar = () => {
@@ -63,9 +62,9 @@ const NavBar = () => {
           {/* RIGHT SIDE starting */}
         </Nav>
         <Nav inline="true">
-          <Nav.Link href="#link">
-            <Search color="white" />
-          </Nav.Link>
+          <Link to="/search">
+            <SearchInput />
+          </Link>
           <Nav.Link className="ml-3" href="#link" style={{ color: "grey" }}>
             KIDS
           </Nav.Link>

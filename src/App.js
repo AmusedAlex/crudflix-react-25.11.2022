@@ -8,6 +8,7 @@ import Home from "./components/Home";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import TvShows from "./components/TvShows";
 import FilmDetails from "./components/FilmDetails";
+import SearchOutput from "./components/SearchOutput";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route element={<Home />} path="/" />
           <Route element={<TvShows />} path="/tvshows" />
           <Route element={<Movies />} path="/movies" />
+          <Route element={<SearchOutput />} path="/search" />
           <Route element={<FilmDetails />} path="/details/:filmId" />
         </Routes>
       </BrowserRouter>

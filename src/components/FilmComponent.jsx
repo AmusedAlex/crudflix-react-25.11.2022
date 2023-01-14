@@ -2,8 +2,10 @@ import "./styles.css";
 import { Spinner } from "react-bootstrap";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const FilmComponent = (props) => {
+  let stateInput = useSelector((state) => state.search.input);
   const [search, setSearch] = useState([
     // {
     //   Title: "",
@@ -14,12 +16,17 @@ const FilmComponent = (props) => {
     // },
   ]);
 
+  const location = window.location.pathname;
+  const [input, setInput] = useState(
+    location === "/movies" || "/tvshows" ? props.filmName : stateInput
+  );
+
   const [isLoading, setIsLoading] = useState(true);
 
   const fetchFilms = async () => {
     try {
       let response = await fetch(
-        `http://localhost:1337/medias/?search=${props.filmName}`,
+        `http://localhost:1337/medias/?search=${input}`,
         { method: "GET" }
       );
       if (response.ok) {
@@ -37,13 +44,16 @@ const FilmComponent = (props) => {
   };
 
   useEffect(() => {
+    setInput(
+      location === "/movies" || "/tvshows" ? props.filmName : stateInput
+    );
     fetchFilms();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [stateInput, input]);
 
   return (
     <div className="movie-gallery m-2">
-      <h5 className="text-light mt-2 mb-2">{props.filmName}</h5>
+      <h5 className="text-light mt-2 mb-2">{input}</h5>
       <div id="new-releases" className="carousel slide" data-bs-ride="carousel">
         <div className="carousel-inner">
           <div className="carousel-item active">
