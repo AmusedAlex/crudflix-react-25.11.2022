@@ -1,12 +1,10 @@
 import { useState } from "react";
 import { InputGroup, FormControl } from "react-bootstrap";
 import { Search } from "react-bootstrap-icons";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { GET_SEARCH_INPUT } from "../redux/actions";
 
 const SearchInput = () => {
-  // let stateInput = useSelector((state) => state.search.input);
-
   let dispatch = useDispatch();
 
   const [input, setInput] = useState(null);
@@ -21,6 +19,7 @@ const SearchInput = () => {
         type: GET_SEARCH_INPUT,
         payload: input,
       });
+      setInput("");
     }
   };
 
