@@ -7,6 +7,8 @@ const TvShows = () => {
     <div className="container-fluid" id="container">
       <TvShowsGenres title={"Your favourite Tv Shows"} />
       <FilmComponent filmName={"Outlaws"} />
+      <FilmComponent filmName={"Simpsons"} />
+      <FilmComponent filmName={"Millionaire"} />
     </div>
   );
 };
