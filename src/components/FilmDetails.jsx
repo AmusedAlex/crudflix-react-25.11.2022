@@ -18,7 +18,7 @@ const FilmDetails = () => {
   const fetchFilm = async () => {
     try {
       let response = await fetch(
-        `http://www.omdbapi.com/?i=${params.filmId}&apikey=c559a0ab`,
+        `http://localhost:1337/medias/${params.filmId}`,
         { method: "GET" }
       );
       if (response.ok) {
