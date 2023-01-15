@@ -35,7 +35,7 @@ const FilmComponent = (props) => {
         setIsLoading(false);
         console.log(data);
       } else {
-        alert("Fetching failed");
+        alert("No matches on this search");
         console.log("Fetching failed");
       }
     } catch (error) {
