@@ -18,7 +18,7 @@ const FilmDetails = () => {
   const fetchFilm = async () => {
     try {
       let response = await fetch(
-        `${process.env.REACT_APP_BE_DEV_URL}/medias/${params.filmId}`,
+        `${process.env.REACT_APP_BE_PROD_URL}/medias/${params.filmId}`,
         {
           method: "GET",
         }

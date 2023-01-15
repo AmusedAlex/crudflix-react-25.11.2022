@@ -26,7 +26,7 @@ const FilmComponent = (props) => {
   const fetchFilms = async () => {
     try {
       let response = await fetch(
-        `${process.env.REACT_APP_BE_DEV_URL}/medias/?search=${input}`,
+        `${process.env.REACT_APP_BE_PROD_URL}/medias/?search=${input}`,
         { method: "GET" }
       );
       if (response.ok) {
