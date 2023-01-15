@@ -26,7 +26,7 @@ const FilmComponent = (props) => {
   const fetchFilms = async () => {
     try {
       let response = await fetch(
-        `http://localhost:1337/medias/?search=${input}`,
+        `https://brave-clam-long-underwear.cyclic.app/medias/?search=${input}`,
         { method: "GET" }
       );
       if (response.ok) {
@@ -53,7 +53,7 @@ const FilmComponent = (props) => {
 
   return (
     <div className="movie-gallery m-2">
-      <h5 className="text-light mt-2 mb-2">{input}</h5>
+      <h5 className="text-light mt-3 mb-2">{input}</h5>
       <div id="new-releases" className="carousel slide" data-bs-ride="carousel">
         <div className="carousel-inner">
           <div className="carousel-item active">

@@ -18,7 +18,7 @@ const FilmDetails = () => {
   const fetchFilm = async () => {
     try {
       let response = await fetch(
-        `http://localhost:1337/medias/${params.filmId}`,
+        `https://brave-clam-long-underwear.cyclic.app/medias/${params.filmId}`,
         { method: "GET" }
       );
       if (response.ok) {
@@ -57,6 +57,7 @@ const FilmDetails = () => {
             <div>
               Released: {film.Released}, Author: {film.Writer}
             </div>
+            <div>Available Languages: {film.Language}</div>
             <Button
               variant="danger"
               className="mt-4"
