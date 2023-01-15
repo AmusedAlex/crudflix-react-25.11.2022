@@ -18,8 +18,10 @@ const FilmDetails = () => {
   const fetchFilm = async () => {
     try {
       let response = await fetch(
-        `https://brave-clam-long-underwear.cyclic.app/medias/${params.filmId}`,
-        { method: "GET" }
+        `${process.env.REACT_APP_BE_PROD_URL}/medias/${params.filmId}`,
+        {
+          method: "GET",
+        }
       );
       if (response.ok) {
         let data = await response.json();
